@@ -8,65 +8,84 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      display: flex; /* Usamos Flexbox para centrar el contenido */
-      justify-content: center; /* Centra horizontalmente */
-      align-items: center; /* Centra verticalmente */
-      flex-direction: column; /* Para que el botón esté debajo del texto (si lo hubiera) */
+      overflow: hidden; /* Oculta barras de desplazamiento si el contenido excede el tamaño de la ventana */
     }
     body {
       background: url("fondo-web.jpg") no-repeat center center;
       background-size: cover;
-      background-attachment: fixed; /* Para que el fondo no se mueva al hacer scroll si agregas más contenido */
+      background-attachment: fixed;
+    }
+
+    /* Contenedor para el texto y el botón en la parte superior */
+    .top-content-wrapper {
+      position: absolute; /* Posicionamiento absoluto respecto al body */
+      top: 20px; /* Distancia desde la parte superior (puedes ajustar este valor) */
+      left: 50%; /* Mueve el inicio del elemento al centro horizontal */
+      transform: translateX(-50%); /* Mueve el elemento hacia la izquierda la mitad de su propio ancho para centrarlo */
+      display: flex; /* Usamos Flexbox para organizar el texto y el botón en columna */
+      flex-direction: column; /* Apila el texto y el botón verticalmente */
+      align-items: center; /* Centra los ítems (texto y botón) dentro de este contenedor */
+      z-index: 10; /* Asegura que esté por encima de la imagen de fondo */
+    }
+
+    /* Estilos para el texto del teléfono */
+    .phone-text {
+        color: white; /* O el color que mejor contraste con tu imagen de fondo */
+        font-family: Arial, sans-serif; /* Puedes cambiar la fuente si tienes una específica */
+        font-size: 24px; /* Tamaño de fuente del número de teléfono */
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+        margin-bottom: 15px; /* Espacio entre el texto y el botón */
+        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
     }
 
     /* Estilos para el botón de WhatsApp */
     .whatsapp-button {
       display: inline-block;
-      padding: 15px 30px; /* Tamaño del botón */
+      padding: 15px 30px;
       background-color: #25D366; /* Color de WhatsApp */
       color: white;
       text-align: center;
       text-decoration: none;
-      border-radius: 50px; /* Bordes más redondeados para un estilo de "píldora" */
-      font-family: Arial, sans-serif; /* Puedes cambiar la fuente si tienes una específica */
+      border-radius: 50px;
+      font-family: Arial, sans-serif;
       font-size: 20px;
       font-weight: bold;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para que destaque */
-      transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave al pasar el mouse */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .whatsapp-button:hover {
-      background-color: #1DA851; /* Color un poco más oscuro al pasar el mouse */
-      transform: translateY(-2px); /* Pequeño efecto de "levantar" */
+      background-color: #1DA851;
+      transform: translateY(-2px);
     }
 
     .whatsapp-button i {
-      margin-right: 10px; /* Espacio entre el icono y el texto */
+      margin-right: 10px;
     }
 
-    /* Estilos para el texto del teléfono, si lo quieres encima del botón */
-    .phone-text {
-        color: white; /* O el color que mejor contraste con tu imagen de fondo */
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
-        margin-bottom: 20px; /* Espacio entre el texto y el botón */
-        z-index: 1; /* Asegura que el texto esté por encima del fondo */
+    /* Media Queries para ajustar en pantallas más pequeñas (opcional, pero recomendado) */
+    @media (max-width: 768px) {
+        .top-content-wrapper {
+            top: 15px; /* Menos espacio desde arriba en móviles */
+        }
+        .phone-text {
+            font-size: 20px; /* Reducir tamaño de fuente en móviles */
+        }
+        .whatsapp-button {
+            padding: 12px 25px; /* Botón un poco más pequeño en móviles */
+            font-size: 18px;
+        }
     }
-
-    /* Opcional: Si quieres un icono de WhatsApp */
-    /* Necesitarás enlazar a Font Awesome en tu <head> */
-    /* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> */
   </style>
 </head>
 <body>
-  <div>
+  <div class="top-content-wrapper">
     <p class="phone-text">Llamanos o escribinos al: 3517624178</p>
 
-    <a href="https://wa.me/543517624178?text=Hola%2C%20quisiera%20consultarles%20sobre%20sus%20servicios." target="_blank" class="whatsapp-button">
+    <a href="https://wa.me/54935117624178?text=Hola%2C%20quisiera%20consultarles%20sobre%20sus%20servicios." target="_blank" class="whatsapp-button">
       Enviar WhatsApp
     </a>
   </div>
