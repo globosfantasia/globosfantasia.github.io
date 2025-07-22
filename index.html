@@ -8,13 +8,67 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      display: flex; /* Usamos Flexbox para centrar el contenido */
+      justify-content: center; /* Centra horizontalmente */
+      align-items: center; /* Centra verticalmente */
+      flex-direction: column; /* Para que el botón esté debajo del texto (si lo hubiera) */
     }
     body {
       background: url("fondo-web.jpg") no-repeat center center;
       background-size: cover;
+      background-attachment: fixed; /* Para que el fondo no se mueva al hacer scroll si agregas más contenido */
     }
+
+    /* Estilos para el botón de WhatsApp */
+    .whatsapp-button {
+      display: inline-block;
+      padding: 15px 30px; /* Tamaño del botón */
+      background-color: #25D366; /* Color de WhatsApp */
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50px; /* Bordes más redondeados para un estilo de "píldora" */
+      font-family: Arial, sans-serif; /* Puedes cambiar la fuente si tienes una específica */
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para que destaque */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave al pasar el mouse */
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1DA851; /* Color un poco más oscuro al pasar el mouse */
+      transform: translateY(-2px); /* Pequeño efecto de "levantar" */
+    }
+
+    .whatsapp-button i {
+      margin-right: 10px; /* Espacio entre el icono y el texto */
+    }
+
+    /* Estilos para el texto del teléfono, si lo quieres encima del botón */
+    .phone-text {
+        color: white; /* O el color que mejor contraste con tu imagen de fondo */
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+        margin-bottom: 20px; /* Espacio entre el texto y el botón */
+        z-index: 1; /* Asegura que el texto esté por encima del fondo */
+    }
+
+    /* Opcional: Si quieres un icono de WhatsApp */
+    /* Necesitarás enlazar a Font Awesome en tu <head> */
+    /* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> */
   </style>
 </head>
 <body>
+  <div>
+    <p class="phone-text">Llamanos o escribinos al: 351 1234567</p>
+
+    <a href="https://wa.me/5493517624178?text=Hola%2C%20quisiera%20consultarles%20sobre%20sus%20servicios." target="_blank" class="whatsapp-button">
+      Enviar WhatsApp
+    </a>
+  </div>
 </body>
 </html>
